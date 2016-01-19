@@ -1,0 +1,15 @@
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve">
+<style type="text/css">
+	line {
+		fill:none;
+		stroke:#FFFFFF;
+		stroke-miterlimit: 60;
+		stroke-width: 4px;
+		stroke-linecap: round;
+	}
+</style>
+<line x1="0" y1="16" x2="64" y2="16"/>
+<line x1="0" y1="31.5" x2="64" y2="31.5"/>
+<line x1="0" y1="48" x2="64" y2="48"/>
+</svg>

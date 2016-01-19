@@ -133,5 +133,5 @@ function theme_scripts() {
 
 	$theme_dir = get_template_directory_uri();
 
-	wp_enqueue_script( 'main', "$theme_dir/assets/js/main.js", array(), null, true );
+	wp_enqueue_script( 'main', "$theme_dir/assets/js/main.js", array( 'jquery' ), null, true );
 }

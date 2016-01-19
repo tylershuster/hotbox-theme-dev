@@ -1,0 +1,17 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 162.37 168.02">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #73a33f;
+      }
+
+      .cls-2 {
+        fill: #526f2c;
+      }
+    </style>
+  </defs>
+  <title>ribbon</title>
+  <path class="cls-1" d="M0,168c51.25-27,104.88-39.88,162.37-30,0,0,0-80.32,0-102C162.37,10,3.3,40.39,0,66l24.24,39.37Z"/>
+  <rect class="cls-1" x="64.51" width="1162.79" height="96.01"/>
+  <polygon class="cls-2" points="64.51 95.64 162.37 137.65 162.37 95.64 64.51 95.64"/>
+</svg>

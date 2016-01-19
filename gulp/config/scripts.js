@@ -4,4 +4,15 @@
  * Config
  *
  */
-module.exports = {};
+var webpack = require('webpack');
+module.exports = {
+  options: {
+    webpack: {
+      defaults: {
+        externals: {
+          jquery: 'window.jQuery'
+        }
+      }
+    }
+  }
+};

@@ -20,8 +20,8 @@
  * }
  */
 module.exports = {
-	name: 'you_should_probably_change_this',
-	prettyName: 'You should probably change this...',
+	name: 'hotbox',
+	prettyName: 'Hotbox Theme',
 
 	description: 'The 2015 theme for {Example.com}. Built by John & Jane Doe for {Example}',
 	version: '0.1.0',

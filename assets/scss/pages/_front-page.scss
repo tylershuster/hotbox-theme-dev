@@ -1,0 +1,815 @@
+
+
+div#hero {
+	text-align: center;
+	background-image: url('/wp-content/themes/hotbox/assets/img/hero.jpg');
+	background-size: cover;
+	background-position: center center;
+	/*background-attachment: fixed;*/
+	min-height: calc( 90vh - 5rem );
+	max-height: calc( 98vh - 5rem );
+	padding-top: 9rem;
+	display: flex;
+	flex-flow: row wrap;
+	position: relative;
+	justify-content: space-around;
+	align-items: center;
+	align-content: space-around;
+	box-shadow: 0 0 20vw 10vw rgba(0,0,0,0.7) inset;
+	padding: 7rem 1rem 0;
+	.tagline {
+		font-size: 3rem;
+		font-weight: 100;
+		text-transform: uppercase;
+		letter-spacing: 2px;
+		text-align: center;
+		font-weight: 800;
+		display: block;
+		margin: 0 auto 3rem;
+	}
+	.button {
+		font-size: 1.5rem;
+		font-weight: bold;
+		width: 13rem;
+
+		@include bp( $b_tablet ) {
+			position: absolute;
+			bottom: 2rem;
+		}
+		&:first-of-type {
+			background-color: $c_purple;
+
+			@include bp( $b_tablet ) {
+				left: 50%;
+				margin-left: 0.5rem;
+			}
+		}
+		&:last-of-type {
+			background-color: $c_green;
+
+			@include bp( $b_tablet ) {
+				right: 50%;
+				margin-right: 0.5rem;
+			}
+		}
+	}
+
+}
+
+div#pitch {
+	display: flex;
+	flex-flow: row wrap;
+	padding: 3rem 1rem;
+	max-width: 60rem;
+	margin: 0 auto;
+	justify-content: center;
+	.social {
+		flex-basis: 100%;
+	}
+
+	h2 {
+		text-align: center;
+		width: 100%;
+	}
+
+	p {
+		text-align: center;
+	}
+
+	> figure {
+		flex: 0 1 12rem;
+		width: 12rem;
+		height: 12rem;
+		overflow: hidden;
+		padding: 1rem;
+		transition: 0.25s transform ease-in-out;
+		/*margin-right: 1rem;*/
+
+		@include bp( $b_tablet ) {
+			flex-basis: 50%;
+		}
+
+		@include bp( $b_laptop ) {
+			flex-basis: 25%;
+		}
+
+	}
+
+	> figure img {
+		max-width: 100%;
+		border-radius: 50%;
+		background-color: white;
+		max-height: 100%;
+		margin: 0 auto;
+		display: block;
+	}
+}
+
+
+
+div#how {
+	max-width: 60rem;
+	margin: 0 auto;
+	padding: 0 1rem 3rem;
+	display: flex;
+	flex-flow: row wrap;
+
+	h2 {
+		text-align: center;
+		margin-bottom: 0;
+		flex-basis: 100%;
+	}
+
+	ol {
+		list-style-type: none;
+		counter-reset: howWorksCounter;
+		padding: 0;
+		width: 100%;
+		flex-basis: 100%;
+		margin-bottom: 3rem;
+		li {
+			position: relative;
+			padding-left: 7rem;
+			height: 5rem;
+			display: flex;
+			align-items: center;
+			font-size: 1.3rem;
+			font-weight: 100;
+			line-height: 1.3;
+			transition: 0.25s left ease-in-out;
+			left: 0;
+			min-height: 6rem;
+
+			&.hidden {
+				left: -100vh;
+			}
+		}
+		li:before {
+			counter-increment: howWorksCounter;
+			content: counter(howWorksCounter);
+			background-color: $c_purple;
+			border-radius: 50%;
+			border: 0.25rem solid white;
+			font-size: 3rem;
+			width: 5rem;
+			height: 5rem;
+			display: block;
+			text-align: center;
+			line-height: 5rem;
+			font-weight: bold;
+			position: absolute;
+			left: 0;
+			top: 0;
+			bottom: 0;
+			margin: auto;
+		}
+
+		@include bp( $b_tablet ) {
+			display: flex;
+			flex-flow: row wrap;
+			align-content: space-between;
+			flex-basis: 50%;
+			padding-right: 2rem;
+
+			li {
+				flex-basis: 100%;
+			}
+		}
+	}
+
+	img {
+		display: none;
+
+		@include bp( $b_tablet ) {
+			display: block;
+			flex-basis: 50%;
+			margin-top: 2rem;
+			max-height: 50vh;
+		}
+	}
+
+	.button {
+		font-size: 2rem;
+		flex: 1 1 100%;
+		text-align: center;
+		display: block;
+		margin-top: 1rem;
+
+		@include bp( $b_tablet ) {
+			flex: 0 1 auto;
+			margin-right: 1rem;
+		}
+		&:first-of-type {
+			background-color: $c_purple;
+			// margin-right: 1rem;
+		}
+		&:last-of-type {
+			background-color: $c_green;
+		}
+	}
+}
+
+
+div#plans {
+	position: relative;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	padding: 0 0.5rem;
+	margin: 0 auto;
+
+
+
+	#current_order {
+		// position: absolute;
+		flex-basis: 200%;
+		background-color: white;
+		color: $c_green;
+		text-align: center;
+		// left: 0;
+		// top: 0;
+		padding: 0.5rem;
+		border-bottom: 2px dotted $c_green;
+		box-shadow: 0 0.15rem 0rem 0.15rem white;
+		margin-right: -0.5rem;
+		margin-left: -0.5rem;
+
+		h1 {
+			margin: 0;
+			text-transform: uppercase;
+			font-weight: 100;
+			font-size: 1.5rem;
+			position: relative;
+
+			em {
+				font-weight: 800;
+				font-style: normal;
+			}
+		}
+
+		i {
+			background-image: url('/wp-content/themes/hotbox/assets/svg/hot_box.svg');
+			width: 2rem;
+			height: 2rem;
+			display: none;
+			background-size: contain;
+			background-position: center center;
+			background-repeat: no-repeat;
+			margin: 0 auto;
+		}
+
+
+		@include bp( $b_laptop ) {
+			padding: 0;
+			position: absolute;
+			left: 0;
+			top: 0;
+			background: transparent;
+			border: none;
+			box-shadow: none;
+			width: 10rem;
+			height: 10rem;
+
+			&:before {
+				position: absolute;
+				content: "";
+				display: block;
+				width: 0;
+				height: 0;
+				border-top: 10rem solid white;
+				border-right: 10rem solid transparent;
+			}
+
+			&:after {
+				height: 2px;
+				width: 13.44rem;
+				content: "";
+				display: block;
+				transform: rotate(-45deg);
+				border-top: 2px dotted $c_green;;
+				position: relative;
+				left: -1.9rem;
+				top: 0.5rem;
+				background-color: transparent;
+			}
+
+			h1 {
+				padding-left: 0.7rem;
+				padding-right: 2.5rem;
+				width: 100%;
+				text-align: left;
+				font-size: 1.1rem;
+				line-height: 1;
+				padding-top: 0.3rem;
+
+				em {
+					font-size: 2rem;
+					line-height: 0.8;
+				}
+			}
+
+			i {
+				display: block;
+				float: left;
+				position: relative;
+				left: 0.7rem;
+				top: 0.3rem;
+			}
+		}
+
+	}
+
+	> span,
+	> ul {
+		flex-basis: 100%;
+	}
+
+	h2 {
+		text-align: left;
+		flex-basis: calc( 100% - 6rem );
+
+		@include bp( $b_laptop ) {
+			flex-basis: 100%;
+			text-align: center;
+		}
+	}
+
+	> img {
+		flex-basis: 6rem;
+		max-width: 10rem;
+		display: block;
+
+		@include bp( $b_laptop ) {
+			position: absolute;
+			width: 8rem;
+			height: 8rem;
+			left: 50%;
+			margin-left: 17rem;
+			top: 1rem;
+		}
+	}
+
+	> span {
+		padding: 0 0.5rem;
+		text-align: center;
+		// max-width: 20rem;
+		margin: 0 auto 2rem;
+		display: block;
+	}
+
+	ul {
+		padding: 0;
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-between;
+		margin: 0 auto;
+		max-width: 50rem;
+
+
+		h3 {
+			background-color: darken( $c_green, 20 );
+			font-size: 2.5rem;
+			font-weight: 100;
+			margin: 0;
+			text-align: center;
+			text-transform: uppercase;
+		}
+
+		li {
+			margin-bottom: 1rem;
+			display: block;
+			background-color: white;
+			padding: 0.5rem;
+			flex-basis: 100%;
+			position: relative;
+		}
+
+		ul {
+			color: darken( $c_green, 20 );
+			padding-left: 3rem;
+			list-style-type: none;
+			margin-top: 1rem;
+
+			li {
+				position: relative;
+				font-weight: bold;
+				line-height: 1;
+				font-size: 1.5rem;
+				margin: 1rem 0;
+				padding: 0;
+				&:before {
+					content: "";
+					border-radius: 50%;
+					background-color: $c_green;
+					width: 1rem;
+					height: 1rem;
+					display: block;
+					position: absolute;
+					margin: auto;
+					top: 0;
+					bottom: 0;
+					left: -1.5rem;
+				}
+			}
+
+		}
+
+		span {
+			color: darken( $c_green, 20 );
+			font-size: 3rem;
+			text-align: center;
+			font-weight: 100;
+			display: block;
+			margin: 1rem auto;
+		}
+	}
+
+	> ul {
+
+
+		> li {
+
+			@include bp( $b_tablet ) {
+				flex-basis: calc( 50% - 0.5rem );
+			}
+
+			&:last-of-type {
+				display: flex;
+				flex-flow: row wrap;
+				background-color: lighten( $c_green, 20 );
+				flex-basis: 100%;
+
+				@include bp( $b_tablet ) {
+					display: block;
+				}
+
+
+
+				img {
+					flex: 1 1 100%;
+					order: 1;
+					height: 7rem;
+					margin: 0 auto;
+					float: left;
+				}
+
+				h3 {
+					flex: 1 1 100%;
+					order: 0;
+					background-color: transparent;
+				}
+
+				.button {
+					flex: 1 1 100%;
+					order: 2;
+					font-size: 2rem;
+					border-width: 0.5rem;
+				}
+
+				@include bp( $b_tablet ) {
+
+					img {
+						order: 0;
+						flex-basis: 100%;
+						height: 10rem;
+						margin-right: 1rem;
+					}
+					h3 {
+						margin-top: 0.5rem;
+						flex-basis: 50%;
+						text-align: left;
+						order: 1;
+					}
+					.button {
+						float: left;
+						order: 2;
+						width: auto;
+					}
+				}
+			}
+		}
+	}
+
+	.button {
+		background-color: $c_purple;
+		width: 100%;
+		font-size: 2.5rem;
+		display: block;
+		text-align: center;
+		border-width: 0;
+	}
+}
+
+div.cta,
+div.testimonial {
+	background-image: url('/wp-content/themes/hotbox/assets/img/calltoaction_bg.jpg');
+	background-size: cover;
+	background-position: center center;
+	text-align: center;
+	padding: 4rem 0.5rem;
+	display: flex;
+	flex-flow: column nowrap;
+}
+
+div.testimonial {
+
+	h3 {
+		text-transform: uppercase;
+		font-weight: 400;
+		letter-spacing: 2px;
+		margin-bottom: 0;
+	}
+
+	blockquote {
+		font-weight: 100;
+		letter-spacing: 1px;
+		font-size: 0.9rem;
+		margin-top: 0;
+
+		cite {
+			font-size: 0.8rem;
+			text-transform: uppercase;
+			font-style: normal;
+
+			img {
+				border-radius: 50%;
+				background-color: white;
+				display: block;
+				margin: 1rem auto 0;
+			}
+		}
+	}
+}
+
+div.cta {
+
+	span {
+		font-size: 1rem;
+	}
+
+	hr {
+		max-width: 10rem;
+		width: 5rem;
+		border: none;
+		border-top: 1px solid white;
+	}
+
+	hr + span {
+		font-size: 1.2rem;
+		text-transform: uppercase;
+		font-weight: bold;
+	}
+
+	.button {
+		max-width: 10rem;
+		margin: 1rem auto 0;
+		border-width: 1px;
+	}
+}
+
+
+#history {
+	background: $c_purple;
+	padding: 0 2rem;
+	display: flex;
+	flex-flow: row wrap;
+
+	h2,
+	.ribbon,
+	.cta,
+	figure {
+		margin: 0 auto;
+		max-width: 60rem;
+	}
+
+	span.hide {
+		display: none;
+
+		@include bp( $b_tablet ) {
+			display: initial;
+		}
+	}
+
+	h2 {
+		margin: 2rem auto;
+		text-align: center;
+		flex-basis: 100%;
+	}
+
+	.ribbon {
+		display: block;
+		margin: 0 auto;
+		text-align: center;
+		background-color: $c_green;
+		position: relative;
+		// height: 3rem;
+		padding: 0.5rem 0;
+		line-height: 1.2rem;
+		font-size: 1.5rem;
+		font-weight: bolder;
+		text-transform: uppercase;
+		width: 51rem;
+
+		@include bp( $b_tablet ) {
+			max-width: calc( 100% - 17rem );
+			box-shadow: 0 0.9rem 0rem 0rem rgba(0,0,0,0.3);
+			flex-basis: 51rem;
+			&:before,
+			&:after {
+				content: "";
+				width: 15rem;
+				height: 176.2%;
+				position: absolute;
+				top: 0;
+				background-size: contain;
+				background-repeat: no-repeat;
+			}
+
+			&:before {
+				background-image: url('/wp-content/themes/hotbox/assets/svg/ribbon-left.svg');
+				left: -15rem;
+				background-position: top right;
+			}
+			&:after {
+				background-image: url('/wp-content/themes/hotbox/assets/svg/ribbon-right.svg');
+				right: -15rem;
+				background-position: top left;
+			}
+		}
+
+	}
+
+	span.cta {
+		display: block;
+		margin: 3rem auto;
+		flex-basis: 100%;
+		text-align: center;
+		font-size: 1.5rem;
+		font-weight: bold;
+		text-transform: uppercase;
+
+		.button {
+			display: block;
+			margin: 1rem auto 0;
+			width: 10em;
+		}
+	}
+
+	figure {
+		flex-basis: 100%;
+		margin-bottom: 3rem;
+		img {
+			min-height: 20rem;
+			display: block;
+			background: rgba(white, 0.3);
+			margin: 0 auto;
+			max-width: 100%;
+			height: auto;
+		}
+
+		figcaption {
+			text-align: center;
+			font-weight: 200;
+			font-size: 3rem;
+			margin-top: 1rem;
+		}
+	}
+}
+
+#store {
+	padding-top: 4rem;
+	position: relative;
+
+	&:before {
+		height: 4rem;
+		width: 100%;
+		content: "";
+		background-image: url('/wp-content/themes/hotbox/assets/svg/awning.svg');
+		background-size: auto 100%;
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+
+	h2 {
+		margin: 1rem auto;
+		text-align: center;
+	}
+
+	span {
+		text-align: center;
+		display: block;
+	}
+
+	ul {
+		padding: 0;
+		list-style-type: none;
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-around;
+		max-width: 50rem;
+		margin: 1rem auto 2rem;
+
+		li {
+			flex: 0 1 10rem;
+			padding: 0.5rem;
+			img {
+				width: 100%;
+				background: rgba(white,0.3);
+			}
+		}
+
+	}
+}
+
+#contact {
+	background-color: $c_purple;
+	padding: 3rem 0.5rem;
+
+	h2 {
+		text-align: center;
+		margin: 0 auto 2rem;
+	}
+
+	p {
+		text-align: center;
+		max-width: 40rem;
+		margin: 0 auto;
+	}
+
+	form {
+		display: flex;
+		flex-flow: column wrap;
+		align-content: space-around;
+		position: relative;
+		margin: 2rem auto 0;
+		max-width: 50rem;
+
+		@include bp( $b_laptop ) {
+			height: 16rem;
+			margin-bottom: 5rem;
+		}
+
+		input,
+		textarea {
+			background-color: rgba(white, 0.2);
+			border: none;
+			color: white;
+			text-transform: uppercase;
+			margin-bottom: 1rem;
+			width: 100%;
+			height: 3rem;
+			line-height: 1.5rem;
+			padding-left: 0.5rem;
+
+			@include bp( $b_laptop ) {
+				width: calc( 50% - 1rem);
+				// flex: 1 1 100%;
+			}
+		}
+
+		input {
+
+			@include bp( $b_laptop ) {
+				flex: 1 1 3rem;
+			}
+		}
+		textarea {
+			min-height: 8rem;
+			@include bp( $b_laptop ) {
+				height: 100%;
+			}
+		}
+
+		input[type=submit] {
+			border: 4px solid white;
+			font-weight: 800;
+			background-color: $c_green;
+			font-size: 1.5rem;
+			height: auto;
+			padding: 0.25rem 0.5rem 0rem;
+			line-height: 2rem;
+
+			@include bp( $b_laptop ) {
+				bottom: -4rem;
+				position: absolute;
+				left: 0;
+				right: 0;
+				margin: auto;
+				width: 5em;
+			}
+		}
+
+	}
+}
+
+#map {
+
+	iframe {
+		height: 20rem;
+		pointer-events: none;
+	}
+
+}
