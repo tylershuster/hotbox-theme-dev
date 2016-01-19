@@ -176,6 +176,8 @@
 
     <div id="store">
 
+      <span class="awning"></span>
+
       <h2>Online Store</h2>
 
       <span>Purchase items from previous boxes here!</span>
@@ -311,19 +313,65 @@
       new ScrollMagic.Scene({
         triggerElement: '#cta1'
       })
-      .setTween('#cta1 .bg-image', {y: "30%", ease: Linear.easeNone})
-      .addTo(controller);
+      .setTween(
+        '#cta1 .bg-image',
+        3,
+        {
+          y: "50%",
+          ease: Linear.easeNone
+      }).addTo(controller);
 
       new ScrollMagic.Scene({
         triggerElement: '#cta2'
       })
-      .setTween('#cta2 .bg-image', {y: "30%", ease: Linear.easeNone})
-      .addTo(controller);
+      .setTween(
+        '#cta2 .bg-image',
+        3,
+        {
+          y: "50%",
+          ease: Linear.easeNone
+      }).addTo(controller);
 
       new ScrollMagic.Scene({
         triggerElement: '#testimonial'
       })
-      .setTween('#testimonial .bg-image', {y: "30%", ease: Linear.easeNone})
+      .setTween(
+        '#testimonial .bg-image',
+        3,
+        {
+          y: "50%",
+          ease: Linear.easeNone
+      }).addTo(controller);
+
+      new ScrollMagic.Scene({
+        triggerElement: '#store',
+      }).on('progress', function(event) {
+
+        if( event.progress > 0.44 && event.progress < 1 ) {
+
+          if( ! $('#store .awning').is('.stuck') ) {
+
+            $('#store .awning').addClass('stuck');
+
+          }
+
+        } else if( event.progress < 0.44 ) {
+
+          $('#store .awning.stuck').removeClass('stuck');
+
+        } else if( ! $('#store').is(':visible') ) {
+
+          $('#store .awning.stuck').removeClass('stuck');
+
+        }
+        console.log(event.progress);
+
+        //$('#store .awning').addClass('stuck');
+
+      })
+      .on('leave', function(event) {
+      console.log('let');
+      })
       .addTo(controller);
 
     });

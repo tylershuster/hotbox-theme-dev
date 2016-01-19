@@ -32,5 +32,6 @@ jQuery(document).ready(function($) {
         $('header').addClass('stuck');
       }
     }
+
   });
 });

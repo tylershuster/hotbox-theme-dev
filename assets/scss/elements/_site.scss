@@ -38,7 +38,10 @@ a.button {
 	text-decoration: none;
 	text-transform: uppercase;
 	font-weight: bold;
-	transition: 0.25s box-shadow ease-in;
+	transform: translateY(0);
+	transition: 0.25s box-shadow $e_pop, 0.25s transform $e_pop;
+	box-shadow: 0 0 0 rgba(0,0,0,0.5);
+	transition-delay: 0.05s;
 	&:after {
 		content: "";
 		width: 100%;
@@ -58,10 +61,11 @@ a.button {
 	}
 	&:hover {
 		box-shadow: $box-shadow;
+		transform: translateY(-0.3rem);
 
 		&:after {
 
-			opacity: 1;
+			// opacity: 1;
 		}
 	}
 }
@@ -77,11 +81,11 @@ header {
 	padding: 0.5rem;
 	z-index: 9;
 	align-items: center;
-	transition: 0.25s background ease-in-out, 0.25s height ease-in-out;
+	transition: 0.25s background $e_pop, 0.25s height $e_pop;
 
 	&.stuck {
-		background-color: rgba( darken( $c_purple, 20), 0.9);
-		box-shadow: $box-shadow;;
+		background-color: rgba( darken( $c_purple, 20), 0.95);
+		// box-shadow: $box-shadow;;
 		border-bottom: 1px solid darken($c_purple,25);
 		padding: 0 0.5rem;
 		height: 6rem;
