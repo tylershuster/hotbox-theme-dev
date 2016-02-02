@@ -31,10 +31,10 @@
 	    <input type="checkbox" name="menu--toggle" class="menu--toggle">
 	    <nav>
 	      <ul>
-	        <li><a href="home">Home</a></li>
-	        <li><a href="home">My Account</a></li>
-	        <li><a href="home">Store</a></li>
-	        <li><a href="home">Logout</a></li>
+	        <li><a href="<?php echo get_bloginfo('url'); ?>">Home</a></li>
+	        <li><a href="<?php echo get_permalink( wc_get_page_id( 'myaccount' ) ); ?>">My Account</a></li>
+	        <li><a href="<?php echo get_permalink( wc_get_page_id( 'shop' ) ); ?>">Store</a></li>
+	        <li><a href="<?php echo wp_logout_url(); ?>">Logout</a></li>
 	      </ul>
 	    </nav>
 	  </header>

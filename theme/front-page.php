@@ -1,4 +1,17 @@
 <?php get_header(); ?>
+
+<?php
+
+$recent_product_args = array(
+  'post_type' => 'product',
+  'orderby' => 'date',
+  'order' => 'DESC',
+  'posts_per_page' => 8
+);
+
+$RecentProducts = get_posts( $recent_product_args );
+
+ ?>
 <main class="fullwidth">
 
     <div id="hero">
@@ -164,13 +177,15 @@
 
       <span class="cta">Buy it now at our <a href="store" class="purple button">Online Store</a></span>
 
-      <figure>
+      <figure><a href="<?php echo get_the_permalink( $RecentProducts[0]->ID ); ?>">
 
-        <img src="http://lorempixel.com/800/400/abstract" alt="">
+        <img src="<?php echo wp_get_attachment_url( get_post_thumbnail_id($RecentProducts[0]->ID ) ) ?>" alt="">
 
-        <figcaption>May</figcaption>
+        <figcaption><?php echo $RecentProducts[0]->post_title; ?></figcaption>
 
-      </figure>
+      </a></figure>
+
+      <?php unset( $RecentProducts[0] ); ?>
 
     </div>
 
@@ -182,27 +197,11 @@
 
       <span>Purchase items from previous boxes here!</span>
 
-      <?php
-
-      $products = array(
-        '',
-        '',
-        '',
-        '',
-        '',
-        '',
-        '',
-        '',
-        '',
-        '',
-      );
-       ?>
-
        <ul>
 
-       <?php foreach( $products as $i => $product ): ?>
+       <?php foreach( $RecentProducts as $Product ): ?>
 
-         <li><img src="http://lorempixel.com/400/400/abstract/<?php echo $i; ?>" /></li>
+         <li><a href="<?php echo get_the_permalink( $Product->ID ); ?>"><img src="<?php echo wp_get_attachment_url( get_post_thumbnail_id($Product->ID ) ) ?>" /></a></li>
 
        <?php endforeach; ?>
 

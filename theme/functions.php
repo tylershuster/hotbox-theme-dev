@@ -135,3 +135,19 @@ function theme_scripts() {
 
 	wp_enqueue_script( 'main', "$theme_dir/assets/js/main.js", array( 'jquery' ), null, true );
 }
+
+
+
+remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
+remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
+
+add_action('woocommerce_before_main_content', 'hotbox_wrapper_start', 10);
+add_action('woocommerce_after_main_content', 'hotbox_wrapper_end', 10);
+
+function hotbox_wrapper_start() {
+  echo '<main>';
+}
+
+function hotbox_wrapper_end() {
+  echo '</main>';
+}

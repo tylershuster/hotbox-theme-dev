@@ -1,0 +1,13 @@
+.woocommerce {
+	.woocommerce-breadcrumb {
+		&,
+		a {
+			color: white;
+		}
+	}
+
+	div.product .woocommerce-tabs ul.tabs li a,
+	div.product .woocommerce-tabs ul.tabs li.active a {
+		color: $c_green;
+	}
+}
