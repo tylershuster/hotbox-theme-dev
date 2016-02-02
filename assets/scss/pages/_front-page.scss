@@ -37,7 +37,6 @@ div#hero {
 			bottom: 2rem;
 		}
 		&:first-of-type {
-			background-color: $c_purple;
 
 			@include bp( $b_tablet ) {
 				left: 50%;
@@ -45,7 +44,6 @@ div#hero {
 			}
 		}
 		&:last-of-type {
-			background-color: $c_green;
 
 			@include bp( $b_tablet ) {
 				right: 50%;
@@ -199,13 +197,6 @@ div#how {
 			flex: 0 1 auto;
 			margin-right: 1rem;
 		}
-		&:first-of-type {
-			background-color: $c_purple;
-			// margin-right: 1rem;
-		}
-		&:last-of-type {
-			background-color: $c_green;
-		}
 	}
 }
 
@@ -336,9 +327,10 @@ div#plans {
 		}
 	}
 
-	> img {
+	> svg {
 		flex-basis: 6rem;
 		max-width: 10rem;
+		max-height: 12rem;
 		display: block;
 
 		@include bp( $b_laptop ) {
@@ -348,7 +340,7 @@ div#plans {
 			left: 50%;
 			margin-left: 17rem;
 			top: 0.5rem;
-			max-width: 999px;
+			// max-width: 999px;
 		}
 	}
 
@@ -494,7 +486,6 @@ div#plans {
 	}
 
 	.button {
-		background-color: $c_purple;
 		width: 100%;
 		font-size: 2.5rem;
 		display: block;
@@ -702,11 +693,12 @@ div.cta {
 		width: 120%;
 		left: -10%;
 		&.stuck {
-			background-color: rgba(0,0,0,0.1);
-			box-shadow: 0 3px 3px rgba(0,0,0,0.1);
-			position: fixed;
-			transform: matrix3d(1, 0, 0, 0, 0, 1, 0, -0.003, 0, 0, 1, 0, 0, 0, 0, 1);
-			top: 3.2rem;
+
+			@include bp( $b_laptop ) {
+				transform: matrix3d(1, 0, 0, 0, 0, 1, 0, -0.001, 0, 0, 1, 0, 0, 0, 0, 1);
+				top: 3.2rem;
+				position: fixed;
+			}
 
 		}
 	}

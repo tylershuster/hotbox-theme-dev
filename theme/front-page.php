@@ -4,8 +4,8 @@
     <div id="hero">
       <span class="tagline">A new surprise every month!</span>
 
-      <a href="join" class="button">Join Now</a>
-      <a href="how" class="button">How it Works</a>
+      <a href="join" class="purple button">Join Now</a>
+      <a href="how" class="green button">How it Works</a>
     </div>
 
     <div id="pitch">
@@ -60,8 +60,8 @@
 
       <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/box-mockup-01.svg" alt="" />
 
-      <a href="join" class="button">Join</a>
-      <a href="about" class="button">Learn More</a>
+      <a href="join" class="purple button">Join</a>
+      <a href="about" class="green button">Learn More</a>
 
 
     </div>
@@ -91,7 +91,7 @@
 
       <h2>Pricing Options</h2>
 
-      <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/guarantee.svg" alt="30 day money back guarantee">
+      <?php echo file_get_contents( get_stylesheet_directory() . "/assets/svg/guarantee.svg" ); ?>
 
       <span>Save on the best products that you'll receive automatically every month. Cancel at any time.</span>
 
@@ -111,7 +111,7 @@
 
           <span>$29.95/mo</span>
 
-          <a href="order" class="button">Order now</a>
+          <a href="order" class="green button">Order now</a>
         </li>
 
         <li>
@@ -127,14 +127,14 @@
 
           <span>$79.95/mo</span>
 
-          <a href="order" class="button">Order now</a>
+          <a href="order" class="green button">Order now</a>
         </li>
 
         <li>
 
           <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/svg/gift_box.svg" alt="Gift box">
 
-          <h3>Order A</h3><a class="button" href="gift_box">one time gift box</a>
+          <h3>Order A</h3><a class="purple button" href="gift_box">one time gift box</a>
 
         </li>
 
@@ -162,7 +162,7 @@
 
       <span class="ribbon">See something you like<span class="hide"> from previous boxes</span>?</span>
 
-      <span class="cta">Buy it now at our <a href="store" class="button">Online Store</a></span>
+      <span class="cta">Buy it now at our <a href="store" class="purple button">Online Store</a></span>
 
       <figure>
 
@@ -223,7 +223,7 @@
         <input type="text" name="subject" placeholder="subject">
         <textarea name="message" cols="30" rows="10"></textarea>
 
-        <input type="submit" value="send">
+        <input type="submit" value="send" class="green button">
 
       </form>
 
@@ -310,44 +310,39 @@
       })
       .addTo(controller);
 
-      new ScrollMagic.Scene({
-        triggerElement: '#cta1'
-      })
-      .setTween(
-        '#cta1 .bg-image',
-        3,
-        {
-          y: "50%",
-          ease: Linear.easeNone
-      }).addTo(controller);
+      var tween1 = new TimelineMax().add([
+        TweenMax.fromTo('#cta1 .bg-image',1, {backgroundPosition: "0% 0%"}, {backgroundPosition: "0% -100%", ease:Linear.easeNone})
+      ]);
+      var tween2 = new TimelineMax().add([
+        TweenMax.fromTo('#cta2 .bg-image',1, {backgroundPosition: "0% 0%"}, {backgroundPosition: "0% -100%", ease:Linear.easeNone})
+      ]);
+      var tween3 = new TimelineMax().add([
+        TweenMax.fromTo('#testimonial .bg-image',1, {backgroundPosition: "0% 0%"}, {backgroundPosition: "0% -100%", ease:Linear.easeNone})
+      ]);
 
       new ScrollMagic.Scene({
-        triggerElement: '#cta2'
+        triggerElement: '#cta1',
+        duration: "800",
       })
-      .setTween(
-        '#cta2 .bg-image',
-        3,
-        {
-          y: "50%",
-          ease: Linear.easeNone
-      }).addTo(controller);
+      .setTween(tween1).addTo(controller);
 
       new ScrollMagic.Scene({
-        triggerElement: '#testimonial'
+        triggerElement: '#cta2',
+        duration: "800",
       })
-      .setTween(
-        '#testimonial .bg-image',
-        3,
-        {
-          y: "50%",
-          ease: Linear.easeNone
-      }).addTo(controller);
+      .setTween(tween2).addTo(controller);
+
+      new ScrollMagic.Scene({
+        triggerElement: '#testimonial',
+        duration: "800",
+      })
+      .setTween(tween3).addTo(controller);
 
       new ScrollMagic.Scene({
         triggerElement: '#store',
       }).on('progress', function(event) {
 
-        if( event.progress > 0.44 && event.progress < 1 ) {
+        if( event.progress > 0.44 && event.progress < 0.82 ) {
 
           if( ! $('#store .awning').is('.stuck') ) {
 
@@ -363,6 +358,8 @@
 
           $('#store .awning.stuck').removeClass('stuck');
 
+        } else if( event.progress > 0.82 ) {
+          $('#store .awning').removeClass('stuck');
         }
         console.log(event.progress);
 
